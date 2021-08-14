@@ -1,5 +1,10 @@
-# singularity-boxes
+![Status](https://github.com/pscedu/singularity-tiger/actions/workflows/main.yml/badge.svg)
+![Issue](https://img.shields.io/github/issues/icaoberg/singularity-tiger)
+![forks](https://img.shields.io/github/forks/icaoberg/singularity-tiger)
+![Stars](https://img.shields.io/github/stars/icaoberg/singularity-tiger)
+![License](https://img.shields.io/github/license/icaoberg/singularity-tiger)
 
+# singularity-boxes
 Singularity recipe for [boxes](https://boxes.thomasjensen.com/).
 
 ## Building the image using the recipe
