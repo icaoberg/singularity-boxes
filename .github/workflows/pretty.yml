@@ -1,9 +1,11 @@
-name: Checking if ready for publishing
+name: Publishing ready
 on: [push, pull_request]
 jobs:
   build:
     name: Build
     runs-on: ubuntu-18.04
+    container:
+      options: --privileged
     steps:
     - name: Check out code
       uses: actions/checkout@v2
@@ -14,6 +16,28 @@ jobs:
     - name: Checking if LICENSE exists
       run: |
         FILE=LICENSE
+        if [ -f "$FILE" ]; then
+            echo "File "$FILE" exists."
+            exit 0
+        else 
+            echo "File $FILE does not exist."
+            exit 1
+        fi
+    
+    - name: Checking if CONTRIBUTING guide exists
+      run: |
+        FILE=CONTRIBUTING.md
+        if [ -f "$FILE" ]; then
+            echo "File "$FILE" exists."
+            exit 0
+        else 
+            echo "File $FILE does not exist."
+            exit 1
+        fi
+
+    - name: Checking if README file exists
+      run: |
+        FILE=README.md
         if [ -f "$FILE" ]; then
             echo "File "$FILE" exists."
             exit 0
