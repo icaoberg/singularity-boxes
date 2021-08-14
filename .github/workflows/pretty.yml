@@ -1,17 +1,15 @@
-name: Checking if ready for publishing
+name: Publishing ready
 on: [push, pull_request]
 jobs:
   build:
     name: Build
     runs-on: ubuntu-18.04
-    container:
-      options: --privileged
     steps:
     - name: Check out code
       uses: actions/checkout@v2
       
     - name: Install useful utilities
-      run: apt-get install -y tree
+      run: sudo apt-get install -y tree
 
     - name: Checking if LICENSE exists
       run: |
@@ -21,5 +19,48 @@ jobs:
             exit 0
         else 
             echo "File $FILE does not exist."
+            exit 1
+        fi
+
+    - name: Checking if Apache License Version 2.0, January 2004 is being used
+      run: |
+        if grep --quiet "Apache License" LICENSE && grep --quiet "Version 2.0, January 2004" LICENSE; then
+            echo "Using Apache License Version 2.0, January 2004"
+            exit 0
+        else
+            echo "Not using Apache License Version 2.0, January 2004"
+            exit 1
+        fi
+    
+    - name: Checking if CONTRIBUTING guide exists
+      run: |
+        FILE=CONTRIBUTING.md
+        if [ -f "$FILE" ]; then
+            echo "File "$FILE" exists."
+            exit 0
+        else 
+            echo "File $FILE does not exist."
+            exit 1
+        fi
+
+    - name: Checking if README file exists
+      run: |
+        FILE=README.md
+        if [ -f "$FILE" ]; then
+            echo "File "$FILE" exists."
+            exit 0
+        else 
+            echo "File $FILE does not exist."
+            exit 1
+        fi
+
+    - name: Checking if there exists at least one Singularity definition file
+      run: |
+        FILE=Singularity
+        if [ $(find . -name "$FILE" -mmin -5 | wc -l) -gt 0 ]; then 
+            echo "File "$FILE" was found.";
+            exit 0 
+        else 
+            echo "File "$FILE" was not found.";
             exit 1
         fi
