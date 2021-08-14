@@ -57,7 +57,7 @@ jobs:
     - name: Checking if there exists at least one Singularity definition file
       run: |
         FILE=Singularity
-        if [[ -n $(find . -name="$FILE" ) ]]; then 
+        if [ $(find . -name "$FILE" -mmin -5 | wc -l) -gt 0 ]; then 
             echo "File "$FILE" was found.";
             exit 0 
         else 
