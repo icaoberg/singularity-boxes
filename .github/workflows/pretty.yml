@@ -53,6 +53,16 @@ jobs:
             echo "File $FILE does not exist."
             exit 1
         fi
+    
+    - name: Checking if copyrighted to Pittsburgh Supercomputing Center
+      run: |
+        if grep --quiet "Copyright © 2020-2021 Pittsburgh Supercomputing Center. All Rights Reserved." README.md && grep --quiet "Version 2.0, January 2004" LICENSE; then
+            echo "Copyright (c) Pittsburgh Supercomputing Center"
+            exit 0
+        else
+            echo "No reference to Pittsburgh Supercomputing Center"
+            exit 1
+        fi
 
     - name: Checking if there exists at least one Singularity definition file
       run: |
