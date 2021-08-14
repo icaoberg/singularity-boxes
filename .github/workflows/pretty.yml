@@ -4,14 +4,12 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-18.04
-    container:
-      options: --privileged
     steps:
     - name: Check out code
       uses: actions/checkout@v2
       
     - name: Install useful utilities
-      run: apt-get install -y tree
+      run: sudo apt-get install -y tree
 
     - name: Checking if LICENSE exists
       run: |
