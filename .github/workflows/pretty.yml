@@ -53,3 +53,12 @@ jobs:
             echo "File $FILE does not exist."
             exit 1
         fi
+
+    - name: Checking if there exists at least one Singularity definition file
+      run: |
+        FILE=Singularity
+        if [[ -n $(find . -name="$FILE" ) ]]; then 
+            echo "File "$FILE" was found."; 
+        else 
+            echo "File "$FILE" was not found."; 
+        fi
