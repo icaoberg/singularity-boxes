@@ -1,11 +1,9 @@
-name: Publishing ready
+name: Checking if ready for publishing
 on: [push, pull_request]
 jobs:
   build:
     name: Build
     runs-on: ubuntu-18.04
-    container:
-      options: --privileged
     steps:
     - name: Check out code
       uses: actions/checkout@v2
