@@ -58,7 +58,9 @@ jobs:
       run: |
         FILE=Singularity
         if [[ -n $(find . -name="$FILE" ) ]]; then 
-            echo "File "$FILE" was found."; 
+            echo "File "$FILE" was found.";
+            exit 0 
         else 
-            echo "File "$FILE" was not found."; 
+            echo "File "$FILE" was not found.";
+            exit 1
         fi
