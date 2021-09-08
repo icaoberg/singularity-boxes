@@ -1,8 +1,9 @@
-![Status](https://github.com/pscedu/singularity-tiger/actions/workflows/main.yml/badge.svg)
-![Issue](https://img.shields.io/github/issues/icaoberg/singularity-tiger)
-![forks](https://img.shields.io/github/forks/icaoberg/singularity-tiger)
-![Stars](https://img.shields.io/github/stars/icaoberg/singularity-tiger)
-![License](https://img.shields.io/github/license/icaoberg/singularity-tiger)
+![Status](https://github.com/icaoberg/singularity-boxes/actions/workflows/main.yml/badge.svg)
+![Status](https://github.com/icaoberg/singularity-boxes/actions/workflows/pretty.yml/badge.svg)
+![Issue](https://img.shields.io/github/issues/icaoberg/singularity-boxes)
+![forks](https://img.shields.io/github/forks/icaoberg/singularity-boxes)
+![Stars](https://img.shields.io/github/stars/icaoberg/singularity-boxes)
+![License](https://img.shields.io/github/license/icaoberg/singularity-boxes)
 
 # singularity-boxes
 Singularity recipe for [boxes](https://boxes.thomasjensen.com/).
@@ -24,7 +25,7 @@ bash ./rbuild.sh
 ```
 
 ---
-Copyright © 2021 Pittsburgh Supercomputing Center. All Rights Reserved.
+Copyright © 2020-2021 Pittsburgh Supercomputing Center. All Rights Reserved.
 
 [icaoberg](http://www.andrew.cmu.edu/~icaoberg) at the [Pittsburgh Supercomputing
 Center](http://www.psc.edu) in the [Mellon College of Science](https://www.cmu.edu/mcs/) at [Carnegie Mellon University](http://www.cmu.edu).
