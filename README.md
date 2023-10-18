@@ -6,6 +6,13 @@
 ![License](https://img.shields.io/github/license/icaoberg/singularity-boxes)
 
 # singularity-boxes
+```
+echo "This is Sparta!" | boxes
+/*******************/
+/* This is Sparta! */
+/*******************/
+```
+
 Singularity recipe for [boxes](https://boxes.thomasjensen.com/).
 
 ## Building the image using the recipe
