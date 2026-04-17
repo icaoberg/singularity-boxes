@@ -1,0 +1,17 @@
+Bootstrap: docker
+From: debian:latest
+
+%labels
+    MAINTAINER icaoberg
+    EMAIL icaoberg@psc.edu
+    MAINTAINER help@psc.edu
+    WEBSITE http://www.github.com/icaoberg/singularity-boxes
+    COPYRIGHT Copyright © 2026-2026, Pittsburgh Supercomputing Center. All Rights Reserved. 
+    VERSION 2.3.1
+
+%post
+    apt-get update --fix-missing
+    apt-get install -y --no-install-recommends build-essential boxes
+
+%runscript
+    /usr/bin/boxes "$@"

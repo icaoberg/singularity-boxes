@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+# boxes — Wrapper script to run the boxes tool inside the Singularity container.
+#
+# Usage: ./boxes [boxes-options]
+#
+# Passes all arguments through to /usr/bin/boxes running inside the container.
+# Automatically mounts any configured STORAGES directories into the container.
+#
+# Copyright © 2026 Pittsburgh Supercomputing Center.
+# All Rights Reserved.
+
+VERSION=2.3.1
+PACKAGE=boxes
+TOOL=boxes
+DIRECTORY=$(dirname $0)
+
+OPTIONS=""
+for STORAGE in "${STORAGES[@]}"
+do
+	if [ -d "$STORAGE" ]; then
+		OPTIONS=$OPTIONS" -B $STORAGE"
+	fi
+done
+
+singularity exec $OPTIONS $DIRECTORY/singularity-$PACKAGE-$VERSION.sif $TOOL "$@"
+
